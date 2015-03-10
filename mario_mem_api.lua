@@ -2,6 +2,12 @@ local constants = require("mario_mem_constants")
 local MAP_SCREEN_WIDTH = 16
 local MAP_SCREEN_HEIGHT = 13
 
+local MAX_ENEMIES = 5
+
+local mario_mem_api = {}
+
+local player = {}
+
 --[[
 Reads a map tile from memory.
 Inputs:
@@ -23,7 +29,7 @@ Inputs:
 Outputs:
 --]]
 function mem_get_map(player_current_screen)
-	if player_current_screen % 2 == 0 then
+	if player_current_screen % 2 == 0 then							--TODO: Test to make sure this is correct
 		local START_MEM_ADDR = constants.MAP_SCREEN_A_TILES
 	else
 		local START_MEM_ADDR = constants.MAP_SCREEN_B_TILES
@@ -31,7 +37,7 @@ function mem_get_map(player_current_screen)
 	
 	map_mat = {}
 	
-	for y = 1, MAP_SCREEN_HEIGHT1, 1 do								--Matrix indexing is 1...n
+	for y = 1, MAP_SCREEN_HEIGHT, 1 do								--Matrix indexing is 1...n
 		map_mat[y] = {}
 		
 		for x = 1, MAP_SCREEN_WIDTH, 1 do
@@ -42,17 +48,35 @@ function mem_get_map(player_current_screen)
 	return map_mat
 end
 
-
-
-
---TODO: Delete here onwards
---Speeds
-NORMAL = "normal"
-NO_THROTTLE = "nothrottle" --Same as turbo
-TURBO = "turbo"
-MAXIMUM = "maximum"
-
-function main()
+function mem_get_current_screen()
+	return memory.readbyte(constants.MAP_CURRENT_SCREEN)
 end
 
-main()
+function mem_get_next_screen()
+	return memory.readbyte(constants.MAP_NEXT_SCREEN)
+end
+
+
+--Player Memory API
+function player.mem_get_animation()
+	return memory.readbyte(constants.PLAYER_ANIM)
+end
+
+function player.mem_get_facing()
+	return memory.readbyte(constants.PLAYER_FACING)
+end
+
+function player.mem_get_state()
+	return memory.readbyte(constants.PLAYER_STATE)
+end
+
+function player.mem_get_float_state()
+	return memory.readbyte(constants.PLAYER_FLOAT_STATE)
+end
+
+function player.mem_is_small()
+	return memory.readbyte(constants.PLAYER_IS_SMALL)
+end
+
+mario_mem_api.player = player
+return mario_mem_api

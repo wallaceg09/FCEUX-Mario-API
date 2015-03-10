@@ -59,7 +59,7 @@ mario_mem_constants.UNKNOWN_PAUSE_TIMER = 0X777					--TODO: research
 
 mario_mem_constants.UNKNOWN_AFFECTS_BLOCKS = 0X778				--TODO: research
 
-mario_mem_constants.UNKNOWN_AFFECTS_COLLORS = 0X779				--TODO: research
+mario_mem_constants.UNKNOWN_AFFECTS_COLORS = 0X779				--TODO: research
 
 mario_mem_constants.UNKNOWN_TIMERS = 0X780						--TODO: research. Last timer @ 0X7A2
 
@@ -74,17 +74,17 @@ mario_mem_constants.UNKNOWN_DIFFICULTY = 0X7FC					--TODO: research.
 --PLAYER CONSTANTS
 mario_mem_constants.PLAYER_ANIM = 0x1							--TODO: research
 
-mario_mem_constants.UNKNOWN_Y = 0X2								--TODO: research
-mario_mem_constants.UNKNOWN_X = 0X5								--TODO: research
+mario_mem_constants.UNKNOWN_PLAYER_Y = 0X2						--TODO: research
+mario_mem_constants.UNKNOWN_PLAYER_X = 0X5						--TODO: research
 
-mario_mem_constants.PLAYER_DIRECTION = 0X3						--TODO: research
+mario_mem_constants.UNKNOWN_PLAYER_DIRECTION = 0X3				--TODO: research
 
 mario_mem_constants.PLAYER_STATE = 0XE							--TODO: research
 mario_mem_constants.PLAYER_FLOAT_STATE = 0X1D					--TODO: research
-mario_mem_constants.PLAYER_STATE_UNKNOWN = 0X754				--TODO: research
+mario_mem_constants.PLAYER_IS_SMALL = 0X754						--1 when Mario is small, 0 otherwise
 
-mario_mem_constants.PLAYER_FACING = 0X33 						--TODO: research
-mario_mem_constants.PLAYER_HEADING = 0X39						--TODO: research
+mario_mem_constants.PLAYER_FACING = 0X33 						--1 when facing right, 2 when facing left
+mario_mem_constants.UNKNOWN_PLAYER_HEADING = 0X39				--TODO: research
 
 mario_mem_constants.PLAYER_HORIZONTAL_SPEED = 0X57				--TODO: research
 
@@ -257,7 +257,7 @@ mario_mem_constants.COINS = 0X75E								--TODO: research
 
 mario_mem_constants.HIGH_SCORE = 0X7D7							--TODO: research. Last address = 0X7DC
 mario_mem_constants.MARIO_CURRENT_SCORE = 0X7DD					--TODO: research. Last address = 0X7E2
-mario_mem_constants.LUIGI_ CURRENT_SCORE = 0X7D3				--TODO: research. Last address = 0X7D8
+mario_mem_constants.LUIGI_CURRENT_SCORE = 0X7D3				--TODO: research. Last address = 0X7D8
 
 mario_mem_constants.ON_SCREEN_COINS = 0X7ED						--TODO: research. Last address = 0X7EE
 
