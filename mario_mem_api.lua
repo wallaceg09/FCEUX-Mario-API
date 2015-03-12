@@ -58,6 +58,7 @@ end
 
 
 --Player Memory API
+
 function player.mem_get_animation()
 	return memory.readbyte(constants.PLAYER_ANIM)
 end
@@ -77,6 +78,35 @@ end
 function player.mem_is_small()
 	return memory.readbyte(constants.PLAYER_IS_SMALL)
 end
+
+function player.mem_get_horizontal_speed()
+  return memory.readbyte(constants.PLAYER_HORIZONTAL_SPEED)
+end
+
+function player.mem_get_absolute_horizontal_speed()
+  return memory.readbyte(constants.PLAYER_ABSOLUTE_HORIZONTAL_SPEED)
+end
+
+function player.mem_get_vertical_speed_whole()
+  return memory.readbyte(constants.PLAYER_VERTICAL_VELOCITY_WHOLE)
+end
+
+function player.mem_get_vertical_speed_fraction()
+  return memory.readbyte(constants.PLAYER_VERTICAL_VELOCITY_FRACTION)
+end
+
+function player.mem_get_level_horizontal_position()--TODO: Refactor name after researching. I assume this is the same as constants.MAP_CURRENT_SCREEN
+  return memory.readbyte(constants.PLAYER_LEVEL_HORIZONTAL_POSITION)
+end
+
+function player.mem_get_current_screen_x_position()
+  return memory.readbyte(constants.PLAYER_SCREEN_X_POSITION)
+end
+
+function player.mem_get_current_screen_y_position()
+  return memory.readbyte(constants.PLAYER_SCREEN_Y_POSITION)
+end
+
 
 mario_mem_api.player = player
 return mario_mem_api

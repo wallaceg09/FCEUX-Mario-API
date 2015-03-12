@@ -90,8 +90,8 @@ mario_mem_constants.PLAYER_HORIZONTAL_SPEED = 0X57				--TODO: research
 
 mario_mem_constants.PLAYER_LEVEL_HORIZONTAL_POSITION = 0X6D		--TODO: research
 
-mario_mem_constants.PLAYER_SCREEN_X_POSITION = 0X6D				--TODO: research
-mario_mem_constants.PLAYER_SCREEN_Y_POSITION = 0XC3				--(multiply with PLAYER_VERTICAL_SCREEN_POSITION to get level y pos) 
+mario_mem_constants.PLAYER_SCREEN_X_POSITION = 0X86				--TODO: research
+mario_mem_constants.PLAYER_SCREEN_Y_POSITION = 0XCE				--(multiply with PLAYER_VERTICAL_SCREEN_POSITION to get level y pos) 
 
 mario_mem_constants.PLAYER_VERTICAL_VELOCITY_WHOLE = 0X9F 		--Signed byte
 mario_mem_constants.PLAYER_VERTICAL_VELOCITY_FRACTION = 0X433	--TODO: research
@@ -101,10 +101,9 @@ mario_mem_constants.PLAYER_VERTICAL_SCREEN_POSITION = 0XB5		--1 = VIEWPORT, 0 = 
 mario_mem_constants.PLAYER_CURRENTSCREEN_X_OFFSET = 0X3AD		--TODO: research
 mario_mem_constants.PLAYER_CURRENTSCREEN_Y_OFFSET = 0X3B8		--TODO: research
 
-mario_mem_constants.PLAYER_SPEED_UNSIGNED = 0X700				--TODO: research
+mario_mem_constants.PLAYER_ABSOLUTE_HORIZONTAL_SPEED = 0X700				--TODO: research
 
-mario_mem_constants.UNKNOWN_PLAYER_VERTICAL_POSITION = 0X3B8	--TODO: research
-mario_mem_constants.UNKNOWN_PLAYER_VERTICAL_COUNTER = 0X0416	--TODO: research
+mario_mem_constants.UNKNOWN_PLAYER_VERTICAL_COUNTER = 0X416		--TODO: research
 
 mario_mem_constants.PLAYER_MAX_VELOCITY_LEFT = 0X450			--TODO: research
 mario_mem_constants.PLAYER_MAX_VELOCITY_RIGHT = 0X456			--TODO: research
@@ -117,7 +116,7 @@ mario_mem_constants.PLAYER_SPRITE_STATE = 0X6DF					--TODO: research
 
 mario_mem_constants.PLAYER_ALLOW_SLIDE_STOP = 0X701				--If set to zero, Mario stops instantly instead of sliding
 
-mario_mem_constants.WALK_ANIMATION = 0X704						--TODO: untested
+mario_mem_constants.WALK_ANIMATION = 0X702						--TODO: untested
 
 mario_mem_constants.TOGGLE_WALK = 0X704							--Value of 0 makes Mario swim. 1 Makes Mario walk
 
@@ -127,13 +126,13 @@ mario_mem_constants.UNKNOWN_BIG_SMALL_ANIMATION = 0X70B			--TODO: research
 
 mario_mem_constants.PLAYER_WALK_ANIMATION_DELAY_FRAMES = 0X70C	--TODO: research
 
-mario_mem_constants.PLAYER_WALK_ANUMATION_CURRENT_FRAME = 0X70D	--TODO: research
+mario_mem_constants.PLAYER_WALK_ANIMATION_CURRENT_FRAME = 0X70D	--TODO: research
 
 mario_mem_constants.PLAYER_BIG_MARIO_DUCKING = 0X714			--TODO: research
 
 mario_mem_constants.PLAYER_JUMP_TIMER = 0X782					--TODO: research
-mario_mem_constants.PLAYER_DEATH_INVULN_TIMER = 0X795			--TODO: research
-mario_mem_constants.PLAYER_STAR_TIMER = 0X79E					--TODO: research
+mario_mem_constants.PLAYER_DEATH_INVULN_TIMER = 0X79E			--TODO: research
+mario_mem_constants.PLAYER_STAR_TIMER = 0X79F					--TODO: research
 
 mario_mem_constants.UNKNOWN_PLAYER_FALL_TIMER = 0X795
 mario_mem_constants.UNKNOWN_PLAYER_X_LOAD_NEXT_SCREEN = 0X71C	--TODO: research
