@@ -8,6 +8,7 @@ local mario_mem_api = {}
 
 local player = {}
 
+local enemy = {}
 --[[
 Reads a map tile from memory.
 Inputs:
@@ -56,9 +57,11 @@ function mem_get_next_screen()
 	return memory.readbyte(constants.MAP_NEXT_SCREEN)
 end
 
-
+--[[
+********************************************************
 --Player Memory API
-
+********************************************************
+--]]
 function player.mem_get_animation()
 	return memory.readbyte(constants.PLAYER_ANIM)
 end
@@ -115,7 +118,7 @@ function player.mem_get_drawn_position_y()
   return memory.readbyte(constants.PLAYER_CURRENTSCREEN_Y_OFFSET)
 end
 
-function player.mem_get_hitbox()
+function player.mem_get_hitbox()--FOUR BYTES!
   return memory.readbyte(constants.PLAYER_HITBOX)
 end
 
@@ -163,7 +166,76 @@ function player.mem_get_star_timer()
   return memory.readbyte(constants.PLAYER_STAR_TIMER)
 end
 
+--[[
+********************************************************
+--End Player Memory API
+********************************************************
+--]]
 
+--[[
+********************************************************
+--Enemy Memory API
+********************************************************
+--]]
+
+function _mem_enemy_get_base(base_address)
+  enemies = {}
+  for i = 1, MAX_ENEMIES, 1 do
+    enemies[i] = memory.readbyte( (i-1) * MAX_ENEMIES + base_address)
+  end
+  return enemies
+end
+
+function enemy.mem_get_enemies_drawn()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_DRAWN)
+end
+
+function enemy.mem_get_enemy_types()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_TYPE)
+end
+
+function enemy.mem_get_enemy_headings()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_HEADING)
+end
+
+function enemy.mem_get_enemy_horizontal_speeds()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_HORIZONTAL_SPEED)
+end
+
+function enemy.mem_get_enemy_horizontal_positions()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_LEVEL_HORIZONTAL_POSITION)
+end
+
+function enemy.mem_get_enemy_drawn_position_x()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_CURRENTSCREEN_X_OFFSET)
+end
+
+function enemy.mem_get_enemy_drawn_position_y()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_CURRENTSCREEN_Y_OFFSET)
+end
+
+function enemy.mem_get_hitboxes()
+  hitboxes = {}
+  for enemy = 1, MAX_ENEMIES, 1 do
+    hitbox = {}
+    for i = 1, 4, 1 do
+      hitbox[i] = memory.readbyte((enemy-1)*MAX_ENEMIES + (i-1) * 4)
+    end  
+    hitboxes[enemy] = hitbox
+  end
+  return hitboxes
+end
+
+function enemy.mem_get_vertical_velocities_whole()
+  return _mem_enemy_get_base(constants.ENEMY_ONE_VERTICAL_VELOCITY_WHOLE)
+end
+
+--[[
+********************************************************
+--End Enemy Memory API
+********************************************************
+--]]
 
 mario_mem_api.player = player
+mario_mem_api.enemy = enemy
 return mario_mem_api
