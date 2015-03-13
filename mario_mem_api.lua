@@ -107,6 +107,63 @@ function player.mem_get_current_screen_y_position()
   return memory.readbyte(constants.PLAYER_SCREEN_Y_POSITION)
 end
 
+function player.mem_get_drawn_position_x()
+  return memory.readbyte(constants.PLAYER_CURRENTSCREEN_X_OFFSET)
+end
+
+function player.mem_get_drawn_position_y()
+  return memory.readbyte(constants.PLAYER_CURRENTSCREEN_Y_OFFSET)
+end
+
+function player.mem_get_hitbox()
+  return memory.readbyte(constants.PLAYER_HITBOX)
+end
+
+function player.mem_get_spritestate()
+  return memory.readbyte(constants.PLAYER_SPRITE_STATE)
+end
+
+function player.mem_get_allow_slide_stop()
+  return memory.readbyte(constants.PLAYER_ALLOW_SLIDE_STOP)
+end
+
+function player.mem_get_walk_animation()
+  return memory.readbyte(constants.WALK_ANIMATION)
+end
+
+function player.mem_get_toggle_walk()
+  return memory.readbyte(constants.TOGGLE_WALK)
+end
+
+function player.mem_get_current_gravity()
+  return memory.readbyte(constants.CURRENT_GRAVITY)
+end
+
+function player.mem_get_walk_animation_delay_frames()
+  return memory.readbyte(constants.PLAYER_WALK_ANIMATION_DELAY_FRAMES)
+end
+
+function player.mem_get_current_walk_animation_frame()
+  return memory.readbyte(constants.PLAYER_WALK_ANIMATION_CURRENT_FRAME)
+end
+
+function player.mem_is_big_mario_ducking()
+  return memory.readbyte(constants.PLAYER_BIG_MARIO_DUCKING)
+end
+
+function player.mem_get_jump_timer()
+  return memory.readbyte(constants.PLAYER_JUMP_TIMER)
+end
+
+function player.mem_get_death_invuln_timer()
+  return memory.readbyte(constants.PLAYER_DEATH_INVULN_TIMER)
+end
+
+function player.mem_get_star_timer()
+  return memory.readbyte(constants.PLAYER_STAR_TIMER)
+end
+
+
 
 mario_mem_api.player = player
 return mario_mem_api
